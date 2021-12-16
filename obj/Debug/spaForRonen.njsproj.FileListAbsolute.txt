@@ -1,0 +1,3 @@
+C:\_Exames\Fizikal-Ronen\WebForRonen\spaForRonen\obj\Debug\spaForRonen.njsprojAssemblyReference.cache
+C:\_Exames\Fizikal-Ronen\WebForRonen\spaForRonen\obj\Debug\spaForRonen.njsproj.CoreCompileInputs.cache
+C:\_Exames\Fizikal-Ronen\WebForRonen\spaForRonen\bin\Microsoft.NodejsTools.WebRole.dll

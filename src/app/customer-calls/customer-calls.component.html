@@ -1,0 +1,63 @@
+<div class="jumbotron py-3">
+    <h1 class="display-7 text-center">Customer's Calls</h1>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <select (change)="onSelectChange($event)">  
+            <option *ngFor="let city of cities" value={{city.name}}>{{city.name}}</option>  
+        </select>  
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<div class="row">
+ 
+    <div class="col-md-12">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>סכום בשניות</th>
+                     <th>ישוב</th>
+                <th>שם מלא</th>
+                    <th>מס' הלקוח</th>
+                </tr>
+            </thead>
+            <tr *ngFor="let pd of customersSorted">
+                <td (click)="showDetails(pd,modalData)">{{pd.sumCalls}}</td>
+                <td (click)="showDetails(pd,modalData)">{{pd.city}}</td>
+                <td (click)="showDetails(pd,modalData)">{{pd.fullName}}</td>
+                <td (click)="showDetails(pd,modalData)">{{pd.customerId}}</td>
+    
+               
+            </tr>
+        </table>
+    </div> 
+</div>
+<!-- <button class="btn btn-danger" (click)="triggerModal(modalData)">Open Modal</button> -->
+
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title"> פירוט שיחות של {{selectedCustomer?.fullName || ''}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+       <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>סכום בשניות</th>
+                    <th>מס' טלפון</th>
+                </tr>
+            </thead>
+            <tr *ngFor="let pd of modalPhones">
+                <td >{{pd.sumCalls}}</td>
+                <td >{{pd.phoneNumber}}</td>
+                
+            </tr>
+        </table>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>
